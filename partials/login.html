@@ -1,27 +1,18 @@
-<div class="login container">
-    <form name="loginform" class="form" ng-submit="login()">
-        <div class="form-group">
-            <label for="login-username">Username</label>
-            <input type="text" class="form-control" id="login-username" name="username" ng-model="username" required/>
-            <div ng-messages="loginform.username.$error">
-                <div ng-message="required" class="error">Requried</div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="login-password">Password</label>
-            <input type="{{showloginpass?'text':'password'}}" class="form-control" id="login-password" name="password" ng-model="password" required/>
-            <div ng-messages="loginform.password.$error">
-                <div ng-message="required" class="error">Requried</div>
-            </div>
-        </div>
-        <div class="from-group">
-            <label for="showloginpassword">Showpassword</label>
-            <input type="checkbox" id="showloginpassword" ng-model="showloginpass"/>
-        </div>
-
-        <button class="btn btn-default" type="submit">
-            Login
-        </button>
-    </form>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12" ng-show="isLoggedin">
+			You are logged in as : {{user.name}}
+		</div>
+		<div class="col-md-12 login-div" ng-show="!isLoggedin">
+			<h3 class="login-title">Login with</h3>
+			<div class="col-md-offset-1 col-md-4 login-container" id="gmail-btn" ng-click="login('gmail')">
+				<img src="images/icons/g-icon.png" alt="gmail-logo" class="icon">
+				<div class="name">google</div>
+			</div>
+			<div class="col-md-offset-1 col-md-4 login-container" id="fb-btn" ng-click="login('fb')">
+				<img src="images/icons/fb-icon.png" alt="fb-logo" class="icon">
+				<div class="name">facebook</div>
+			</div>
+		</div>	
+	</div>
 </div>
